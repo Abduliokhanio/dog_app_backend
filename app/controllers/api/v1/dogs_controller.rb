@@ -2,6 +2,7 @@ module Api
   module V1
     class DogsController < ApplicationController
       before_action :set_dog, only: [:show, :update, :destroy]
+      skip_before_action :verify_authenticity_token
 
       # GET /dogs
       def index
