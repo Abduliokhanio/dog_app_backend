@@ -40,8 +40,11 @@ module Api
 
       # DELETE /dogs/:id
       def destroy
-        @dog.destroy
-        head :no_content
+        if @dog.destroy
+          render json: { message: "Successfully deleted" }, status: :ok
+        else
+          render json: { error: "Failed to delete the dog" }, status: :unprocessable_entity
+        end
       end
 
       private
