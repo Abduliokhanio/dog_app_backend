@@ -1,0 +1,15 @@
+#config/sidekiq.yml
+:concurrency: 2
+
+:scheduler:
+  :schedule:
+  #   update_dogs_img:
+  #     cron: "52 17 * * *" 
+  #     class: DogImgUpdaterWorker
+  #     queue: default
+  # :tz: "America/Chicago" 
+
+    # update_dogs_ssn:
+    #   cron: "* * * * *"  # Runs every 1 minute
+    #   class: DogSsnUpdaterWorker  # Corrected the class name
+    #   queue: default

@@ -23,7 +23,8 @@ module DogApp
     config.middleware.delete Rack::Sendfile
     config.middleware.delete ActionDispatch::ActionableExceptions
 
-
+    config.autoload_paths += %W(#{config.root}/app/workers)
+    config.time_zone = 'Central Time (US & Canada)'
 
     # Configuration for the application, engines, and railties goes here.
     #
