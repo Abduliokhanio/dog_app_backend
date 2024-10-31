@@ -26,6 +26,8 @@ module DogApp
     config.autoload_paths += %W(#{config.root}/app/workers)
     config.time_zone = 'Central Time (US & Canada)'
 
+    Dotenv.load('.env', ".env.#{Rails.env}")
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -1,0 +1,89 @@
+<!-- app/views/notification_mailer/welcome_email.html.erb -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+      /* General email styles */
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+      }
+
+      .email-container {
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .header {
+        background-color: #4CAF50;
+        color: #ffffff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .header h1 {
+        margin: 0;
+        font-size: 28px;
+      }
+
+      .content {
+        padding: 20px;
+        color: #333333;
+      }
+
+      .content h2 {
+        color: #4CAF50;
+      }
+
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 24px;
+        color: #ffffff;
+        background-color: #4CAF50;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+
+      .footer {
+        background-color: #f4f4f4;
+        color: #888888;
+        padding: 15px;
+        text-align: center;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="email-container">
+      <!-- Header Section -->
+      <div class="header">
+        <h1>Welcome to Abdul's App!</h1>
+      </div>
+
+      <!-- Content Section -->
+      <div class="content">
+        <h2>Hi, <%= @user.name %>!</h2>
+        <p>Thank you for joining our community. We’re thrilled to have you on board and can’t wait for you to explore everything our app has to offer.</p>
+        
+        <p>To get started, click the button below:</p>
+        <a href="https://www.youtube.com/watch?v=Z4MoEsYqrxQ" class="button">Get Started</a>
+        
+        <p>Feel free to reach out if you have any questions or need assistance.</p>
+      </div>
+
+      <!-- Footer Section -->
+      <div class="footer">
+        <p>Abdul's App © <%= Time.now.year %> - All Rights Reserved</p>
+      </div>
+    </div>
+  </body>
+</html>

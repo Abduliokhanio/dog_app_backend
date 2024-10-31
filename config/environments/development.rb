@@ -33,10 +33,28 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
+
+  #################################################################### -----  MAIL CONFIGURATIONS START
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
-
   config.action_mailer.perform_caching = false
+  # config/environments/development.rb
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['SMTP_SERVER_ADDRESS'],
+    port: ENV['SMTP_SERVER_PORT'].to_i,
+    domain: ENV['SMTP_SERVER_DOMAIN'],
+    user_name: ENV["SMTP_SERVER_USER_NAME"],      # The email address the stmp server belongs to
+    password: ENV["SMTP_SERVER_PASSWORD"],           # The secert stmp server password
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
+  # Set default URL options
+  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+
+  #################################################################### -----  MAIL CONFIGURATIONS END
+
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
