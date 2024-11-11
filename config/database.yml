@@ -2,8 +2,8 @@ default: &default
   adapter: mysql2
   encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USERNAME_DEVELOPMENT'] %>
+  password: <%= ENV['DATABASE_PASSWORD_DEVELOPMENT'] %>
   host: localhost
 
 development:
@@ -20,5 +20,5 @@ test:
 production:
   <<: *default
   database: dog_app_backend_production
-  username: <%= ENV['DATABASE_USERNAME'] %>
-  password: <%= ENV['DATABASE_PASSWORD'] %>
+  username: <%= ENV['DATABASE_USERNAME_PRODUCTION'] %>
+  password: <%= ENV['DATABASE_PASSWORD_PRODUCTION'] %>
