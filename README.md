@@ -1,24 +1,19 @@
-# README
+## Dog app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+set the envfiles:
+```
+####.env.development
+ADMIN_EMAIL
+DATABASE_USERNAME_DEVELOPMENT
+DATABASE_PASSWORD_DEVELOPMENT
+SMTP_SERVER_ADDRESS
+SMTP_SERVER_PORT
+SMTP_SERVER_DOMAIN
+SMTP_SERVER_USER_NAME
+SMTP_SERVER_PASSWORD
+```
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Start with 
+```
+foreman start -f Procfile.dev
+```
