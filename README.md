@@ -17,3 +17,16 @@ Start with
 ```
 foreman start -f Procfile.dev
 ```
+
+live reload
+first make sure you have this installed 
+```
+https://chromewebstore.google.com/detail/livereload/jnihajbhpnppcggbcgedagnkighmdlei?hl=en
+```
+then turn the extention on by clicking on it from the extentions area
+
+then run this on your console
+
+```
+bundle exec guard
+```

@@ -34,8 +34,9 @@ gem 'pry-nav'
 gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'dotenv'
-
 gem 'mysql2', '>= 0.5'
+gem 'hotwire-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
