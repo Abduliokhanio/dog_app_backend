@@ -17,7 +17,7 @@ module DogApp
     config.middleware.delete ActionDispatch::HostAuthorization
     config.middleware.delete ActionDispatch::Static
     config.middleware.delete Sprockets::Rails::QuietAssets
-    config.middleware.delete WebConsole::Middleware
+    config.middleware.delete WebConsole::Middleware if Rails.env.development? || Rails.env.test?
     config.middleware.delete ActionDispatch::ShowExceptions
     config.middleware.delete ActionDispatch::DebugExceptions
     config.middleware.delete Rack::Sendfile
