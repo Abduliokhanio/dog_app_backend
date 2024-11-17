@@ -13,7 +13,7 @@ module DogApp
     config.api_only = true
 
     config.middleware.delete Webpacker::DevServerProxy
-    config.middleware.delete Rack::MiniProfiler
+    config.middleware.delete Rack::MiniProfiler if Rails.env.development? || Rails.env.test?
     config.middleware.delete ActionDispatch::HostAuthorization
     config.middleware.delete ActionDispatch::Static
     config.middleware.delete Sprockets::Rails::QuietAssets
