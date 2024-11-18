@@ -6,6 +6,7 @@ RUN apt-get update -qq && apt-get install -y \
     build-essential \
     libpq-dev \
     nodejs \
+    npm \
     yarn
 
 # Set working directory
@@ -17,10 +18,13 @@ COPY Gemfile Gemfile.lock ./
 # Install gems
 RUN bundle install
 
+# Install Webpack and Webpack CLI globally using npm
+RUN npm install -g webpack webpack-cli
+
 # Copy the rest of the application code
 COPY . .
 
-# Precompile assets (optional for production)
+# Precompile assets for production (uncomment if needed)
 # RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 # Expose the application port
