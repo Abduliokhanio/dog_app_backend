@@ -1,0 +1,32 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"
+    environment:
+      RAILS_ENV: ${RAILS_ENV:-development} # Default to 'development' if not set
+      DATABASE_HOST: db
+      DATABASE_USERNAME: ${DATABASE_USERNAME:-root} # Use .env value or default to 'root'
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-password} # Use .env value or default to 'password'
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-dog_app_backend_development} # Use .env value or default to 'development' DB
+    depends_on:
+      - db
+
+  db:
+    image: mysql:8.0
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD:-password} # Use .env value or default to 'password'
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-dog_app_backend_development} # Use .env value or default to 'development' DB
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  db_data:
