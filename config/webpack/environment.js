@@ -1,12 +1,8 @@
-const { environment } = require('@rails/webpacker')
+const { environment } = require('@rails/webpacker');
 
-// Update the `node` section to align with the new Webpack configuration schema.
+// Update the `node` configuration to align with Webpack 5
 environment.config.merge({
-  node: {
-    __dirname: false,
-    __filename: false,
-    global: true,
-  },
+  node: false, // Completely disable Node.js polyfills as recommended by Webpack 5
 });
 
 module.exports = environment;
