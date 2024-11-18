@@ -1,3 +1,4 @@
 <%= turbo_frame_tag "welcome" do %>
-  <h1>Welcome to Abdul's App so this is working now</h1>
+  <h1>Welcome to Abdul's App! <%= Rails.env %> </h1>
+  <h1>ENV: <%= Rails.env %> </h1>
 <% end %>
