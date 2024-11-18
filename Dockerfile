@@ -13,7 +13,11 @@ RUN apt-get update -qq && apt-get install -y \
 RUN npm install -g yarn@^1
 
 # Install Webpack and Webpack CLI globally
-RUN npm install -g webpack webpack-cli
+# RUN npm install -g webpack webpack-cli
+RUN npm install -g webpack@5.96.1 webpack-cli@5.1.4
+
+# Set legacy OpenSSL provider for Webpack
+ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 # Set working directory
 WORKDIR /app
