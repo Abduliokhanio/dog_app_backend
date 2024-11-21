@@ -27,6 +27,8 @@ services:
       MYSQL_DATABASE: ${MYSQL_DATABASE:-dog_app_backend_development} # Use .env value or default to 'development' DB
     volumes:
       - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
 
 volumes:
   db_data:
