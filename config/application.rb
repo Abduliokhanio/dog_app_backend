@@ -34,16 +34,6 @@ module DogApp
     Dotenv.load('.env', ".env.#{Rails.env}")
     # Rails.logger.info "Rack::Cors middleware loaded"
 
-    config.middleware.insert_before 0, Rack::Cors do
-      allow do
-        origins '*' # Change '*' to 'http://18.234.61.41:3001' for security
-        resource '*',
-                 headers: :any,
-                 methods: [:get, :post, :put, :patch, :delete, :options, :head],
-                 expose: ['ETag'], # Optional: Expose headers to the frontend
-                 max_age: 600
-      end
-    end
   
     # Configuration for the application, engines, and railties goes here.
     #
