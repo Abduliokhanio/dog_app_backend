@@ -35,10 +35,12 @@ module DogApp
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins '*' # Replace '*' with specific domains for better security (e.g., 'http://54.147.178.239:3001')
+        origins '*' # Change '*' to 'http://18.234.61.41:3001' for security
         resource '*',
-          headers: :any,
-          methods: [:get, :post, :put, :patch, :delete, :options, :head]
+                 headers: :any,
+                 methods: [:get, :post, :put, :patch, :delete, :options, :head],
+                 expose: ['ETag'], # Optional: Expose headers to the frontend
+                 max_age: 600
       end
     end
   
