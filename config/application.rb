@@ -32,6 +32,7 @@ module DogApp
     config.time_zone = 'Central Time (US & Canada)'
 
     Dotenv.load('.env', ".env.#{Rails.env}")
+    Rails.logger.info "Rack::Cors middleware loaded"
 
     config.middleware.insert_before 0, Rack::Cors do
       allow do
