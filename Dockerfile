@@ -12,6 +12,8 @@ RUN apt-get update -qq && apt-get install -y \
 # Install Yarn from its official repository
 RUN npm install -g yarn@^1
 
+RUN apt-get update && apt-get install -y vim
+
 # Install Webpack and Webpack CLI globally
 # RUN npm install -g webpack webpack-cli
 RUN npm install -g webpack@5.96.1 webpack-cli@5.1.4
