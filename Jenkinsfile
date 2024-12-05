@@ -19,7 +19,7 @@ pipeline {
     stage('Git Pull') {
       steps {
         sh "cd ${APP_DIR}"
-        echo "currently in this branch: ${APP_DIR}"
+        echo "currently in this branch: ${pwd}"
         sh 'git pull git@github.com:Abduliokhanio/dog_app_backend.git master'
         echo "finished pulling"
       }
