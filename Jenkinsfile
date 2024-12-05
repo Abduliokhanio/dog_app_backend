@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   triggers {
-      githubPush()
+    githubPush()
   }
 
   environment {
@@ -11,27 +11,31 @@ pipeline {
   }
 
   stages {
-    stage('seeing if connection to github worked') {
+    stage('Seeing if connection to GitHub worked') {
       steps {
-        echo 'conneted to github baby'
+        echo 'Connected to GitHub baby'
       }
     }
     stage('Git Pull') {
       steps {
-        sh "cd ${APP_DIR}"
-        echo "currently in this branch: ${pwd}"
-        sh 'git pull git@github.com:Abduliokhanio/dog_app_backend.git master'
-        echo "finished pulling"
+        sh '''
+          cd ${APP_DIR}
+          echo "Currently in this branch: $(pwd)"
+          git pull git@github.com:Abduliokhanio/dog_app_backend.git master
+          echo "Finished pulling"
+        '''
       }
     }
-    stage('reruning application with its new changes') {
+    stage('Rerunning application with its new changes') {
       steps {
-        echo "starting the rerun process for ${APP_NAME}"
-        sh "cd ${APP_DIR}"
-        echo "Currently in this branch: ${pwd}"
-        echo "running ls -a to see what all the files are:"
-        sh "ls -a"
-        sh "docker compose --env-file .env.production up -d"
+        sh '''
+          cd ${APP_DIR}
+          echo "Starting the rerun process for ${APP_NAME}"
+          echo "Currently in this branch: $(pwd)"
+          echo "Running ls -a to see what all the files are:"
+          ls -a
+          docker compose --env-file .env.production up -d
+        '''
       }
     }
   }
