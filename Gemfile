@@ -35,6 +35,7 @@ gem 'sidekiq'
 gem 'sidekiq-scheduler'
 gem 'dotenv'
 gem 'mysql2', '>= 0.5'
+gem 'pg', '~> 1.5', '>= 1.5.9'
 gem 'hotwire-rails'
 
 

@@ -1,10 +1,10 @@
 default: &default
-  adapter: postgresql
-  encoding: unicode
+  adapter: mysql2
+  encoding: utf8mb4
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: akhan17
-  password: root
-  host: <%= ENV['DATABASE_HOST'] || 'localhost' %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  host: <%= ENV['DATABASE_HOST'] %>
 
 development:
   <<: *default
@@ -20,4 +20,4 @@ test:
 production:
   <<: *default
   database: dog_app_backend_production
-  host: <%= ENV['DATABASE_HOST'] || 'localhost' %> # Ensure this matches the Docker service name (e.g., 'db')
+  host: <%= ENV['DATABASE_HOST'] %> # Ensure this matches the Docker service name (e.g., 'db')

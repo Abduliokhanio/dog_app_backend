@@ -6,7 +6,7 @@ module Api
 
       # GET /dogs
       def index
-        @dogs = Dog.all
+        @dogs = Dog.all.sort_by(&:id)
         render json: @dogs
       end
 
