@@ -21,7 +21,6 @@ pipeline {
         sh '''
           cd ${APP_DIR}
           git reset --hard HEAD
-          echo "Currently in this branch: $(pwd)"
           git pull git@github.com:Abduliokhanio/dog_app_backend.git master
           echo "Finished pulling"
         '''
@@ -32,9 +31,6 @@ pipeline {
         sh '''
           cd ${APP_DIR}
           echo "Starting the rerun process for ${APP_NAME}"
-          echo "Currently in this branch: $(pwd)"
-          echo "Running ls -a to see what all the files are:"
-          ls -a
           docker compose --env-file .env.production up -d
         '''
       }
