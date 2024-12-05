@@ -30,8 +30,12 @@ COPY Gemfile Gemfile.lock ./
 # Install gems
 RUN bundle install
 
+
 # Copy the rest of the application code
 COPY . .
+
+# Add webpack and webpack-cli
+RUN yarn add webpack webpack-cli
 
 # Precompile assets for production
 RUN RAILS_ENV=production bundle exec rake assets:precompile
