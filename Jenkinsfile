@@ -26,8 +26,10 @@ pipeline {
     }
     stage('reruning application with its new changes') {
       steps {
-        sh "cd ${APP_DIR}"
         echo "starting the rerun process for ${APP_NAME}"
+        sh "cd ${APP_DIR}"
+        echo "running ls -a to see what all the files are:"
+        sh "ls -a"
         sh "docker compose --env-file .env.production up -d"
       }
     }
