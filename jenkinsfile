@@ -1,0 +1,15 @@
+pipeline {
+  agent any
+
+  triggers {
+      githubPush()
+  }
+
+  stages {
+    stage('seeing if connection to github worked') {
+            steps {
+                echo 'conneted to github baby'
+            }
+        }
+  }
+}
