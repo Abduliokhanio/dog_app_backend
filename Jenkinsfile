@@ -5,10 +5,6 @@ pipeline {
       githubPush()
   }
 
-  environment {
-        BRANCH = 'master'
-    }
-
   stages {
     stage('seeing if connection to github worked') {
             steps {
