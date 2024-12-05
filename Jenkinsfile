@@ -24,5 +24,11 @@ pipeline {
         echo "finished pulling"
       }
     }
+    stage('reruning application with its new changes') {
+      steps {
+        echo "starting the rerun process for ${APP_NAME}"
+        sh "docker compose --env-file .env.production up -d"
+      }
+    }
   }
 }
