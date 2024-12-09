@@ -31,7 +31,7 @@ pipeline {
         sh '''
           cd ${APP_DIR}
           echo "Starting the rerun process for ${APP_NAME}"
-          docker compose --env-file .env.production up -d
+          docker compose --env-file .env.production up -d --build
         '''
       }
     }
