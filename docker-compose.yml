@@ -7,30 +7,11 @@ services:
       dockerfile: Dockerfile
     env_file:
       - .env.production
-    # volumes:
-      # - .:/app
     ports:
       - "3000:3000"
     environment:
-      RAILS_ENV: ${RAILS_ENV:-development} # Default to 'development' if not set
-      DATABASE_HOST: db
-      DATABASE_USERNAME: ${DATABASE_USERNAME:-root} # Use .env value or default to 'root'
-      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-password} # Use .env value or default to 'password'
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-dog_app_backend_development} # Use .env value or default to 'development' DB
-    depends_on:
-      - db
-
-  db:
-    image: mysql:8.0
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: ${DATABASE_PASSWORD:-password} # Use .env value or default to 'password'
-      MYSQL_DATABASE: ${MYSQL_DATABASE:-dog_app_backend_development} # Use .env value or default to 'development' DB
-    volumes:
-      - db_data:/var/lib/mysql
-    ports:
-      - "3306:3306"
-
-volumes:
-  db_data:
+      RAILS_ENV: ${RAILS_ENV:-production} # Set to 'production' if this is for production
+      DATABASE_HOST: ${DATABASE_HOST:-localhost} # External MySQL host (localhost if on the same EC2 instance)
+      DATABASE_USERNAME: ${DATABASE_USERNAME:-root} # MySQL username
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD:-password} # MySQL password
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-dog_app_backend_production} # Your production database name
