@@ -20,6 +20,7 @@ pipeline {
       steps {
         sh '''
           cd ${APP_DIR}
+          git config --global --add safe.directory /home/ubuntu/dog_app_backend
           git reset --hard HEAD
           git pull git@github.com:Abduliokhanio/dog_app_backend.git master
           echo "Finished pulling"
